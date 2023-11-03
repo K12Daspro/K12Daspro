@@ -262,7 +262,25 @@ def hapusData(): #fungsi ini digunakan untuk menghapus salah satu data yang diin
                 print("Menu Berhasil di Hapus")
         except IOError as e:
             print(e)
-        dataSementara()
+        dataBaru()
+
+def dataBaru(): #fungsi ini digunakan untuk menampilkan data sementara yang sudah diinput
+    hapusLayar()
+
+    try:
+        with open(fileData, 'r') as fileBaca:
+            baca = csv.DictReader(fileBaca, delimiter=',')
+            
+            print('-'*89)
+            print(f"|\tTanggal \t Nama Barang \t Jumlah Barang \t Harga Satuan \t Total Harga \t|")
+            print("-"*89) 
+
+            for data in baca:
+                print(f"|\t{data['Tanggal']} \t {data['Nama Barang']} \t {data['Jumlah Barang']} \t\t {data['Harga Satuan']} \t\t {data['Total Harga']} \t\t|")
+    except IOError as e:
+        print(e)
+    
+    admin_menu()
 
 def editTest():
     barang = []
@@ -460,6 +478,7 @@ def user_menu():
                 print("Pilihan yang anda masukkan tidak valid")
 
 def admin_menu():
+    hapusLayar()
     while True:
         print("=" * 32)
         print("Selamat Datang, Admin")
