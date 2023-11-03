@@ -152,17 +152,17 @@ def menu(): #dfatr menu dan menu transaksi
                 continue
 
 def update_saldo(username, saldo): #untuk memperbaharui saldo e-pay
-    with open('users.csv', mode='r') as file:
-        users = list(csv.DictReader(file))
+        with open('users.csv', mode='r') as file:
+            users = list(csv.DictReader(file))
 
-    for user in users:
-        if user['username'] == username:
-            user['saldo_epay'] = str(saldo)
-            with open('users.csv', mode='w', newline='') as file:
-                fieldnames = ['username', 'password', 'saldo_epay']
-                writer = csv.DictWriter(file, fieldnames=fieldnames)
-                writer.writeheader()
-                writer.writerows(users)
+        for user in users:
+            if user['username'] == username:
+                user['saldo_epay'] = str(saldo)
+                with open('users.csv', mode='w', newline='') as file:
+                    fieldnames = ['username', 'password', 'saldo_epay']
+                    writer = csv.DictWriter(file, fieldnames=fieldnames)
+                    writer.writeheader()
+                    writer.writerows(users)
 
 def tambahKembalian(username, kembalian): #untuk mengupdate data saldo setelah melakukan transaksi
     fileData = 'users.csv'  
@@ -262,25 +262,7 @@ def hapusData(): #fungsi ini digunakan untuk menghapus salah satu data yang diin
                 print("Menu Berhasil di Hapus")
         except IOError as e:
             print(e)
-        dataBaru()
-
-def dataBaru(): #fungsi ini digunakan untuk menampilkan data sementara yang sudah diinput
-    hapusLayar()
-
-    try:
-        with open(fileData, 'r') as fileBaca:
-            baca = csv.DictReader(fileBaca, delimiter=',')
-            
-            print('-'*89)
-            print(f"|\tTanggal \t Nama Barang \t Jumlah Barang \t Harga Satuan \t Total Harga \t|")
-            print("-"*89) 
-
-            for data in baca:
-                print(f"|\t{data['Tanggal']} \t {data['Nama Barang']} \t {data['Jumlah Barang']} \t\t {data['Harga Satuan']} \t\t {data['Total Harga']} \t\t|")
-    except IOError as e:
-        print(e)
-    
-    admin_menu()
+        dataTransaksi()
 
 def editTest():
     barang = []
