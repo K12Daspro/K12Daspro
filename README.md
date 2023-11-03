@@ -1,8 +1,8 @@
 ## Kelompok 12 
 Nama Anggota:
-  #### 1. Luqmanul Hakim Rusfan 
-  #### 2. Raisha Auliana Rahma
-  #### 3. Aqiyah Zulqiyah
+  #### 1. Luqmanul Hakim Rusfan  (2109116000)
+  #### 2. Raisha Auliana Rahma   (2309116000)
+  #### 3. Aqiyah Zulqiyah        (2309116075)
 
 ## DEMO PROGRAM
 => Menu utama
